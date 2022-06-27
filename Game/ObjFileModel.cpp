@@ -11,6 +11,7 @@ static const char* vertexShaderSource = "#version 330 core\n"
 "{\n"
 "   norm = aNorm;\n"
 "   gl_Position = trans * vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+"   gl_Position.z *= gl_Position.w;\n"
 "}\0";
 
 static const char* fragmentShaderSource = "#version 330 core\n"
@@ -19,7 +20,7 @@ static const char* fragmentShaderSource = "#version 330 core\n"
 "uniform vec3 light;\n"
 "void main()\n"
 "{\n"
-"   FragColor = vec4(vec3(1.0f, 0.5f, 0.2f) * (dot(norm, light) + 0.5), 1.0f);\n"
+"   FragColor = vec4(vec3(1.0f, 0.5f, 0.2f) * (clamp(dot(norm, light), 0, 1.0f) + 0.5), 1.0f);\n"
 "}\n\0";
 
 ObjFileModel::ObjFileModel(string filename) {
@@ -61,9 +62,10 @@ void ObjFileModel::cleanup() {
 }
 
 void ObjFileModel::draw(Matrix4 m) {
+    glFrontFace(GL_CCW);
     glUseProgram(program);
     unsigned int transformLoc = glGetUniformLocation(program, "trans");
-    glUniformMatrix4fv(transformLoc, 1, GL_TRUE, (GLfloat*)m.a);
+    glUniformMatrix4fv(transformLoc, 1, GL_TRUE, m.getFloatMatirx());
 
     GLfloat lx = 1;
     GLfloat ly = 1;

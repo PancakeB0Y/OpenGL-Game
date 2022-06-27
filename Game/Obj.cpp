@@ -28,3 +28,11 @@ void Obj::setTransform(Matrix4 transform) {
 Matrix4 Obj::getTranform() {
 	return transform;
 }
+
+void Obj::processTriangles(TriangleProcessor* processor, Matrix4 m) {
+	Matrix4 tm = Matrix4::Mul(m, transform);
+	if (model) model->processTriangles(processor, tm);
+	for (int i = 0; i < children.size(); i++) {
+		children[i]->processTriangles(processor, tm);
+	}
+}

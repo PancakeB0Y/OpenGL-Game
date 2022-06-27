@@ -1,9 +1,2 @@
-﻿  main.cpp
-C:\Users\A3\projects\game\Game\Game\main.cpp(65,59): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\A3\projects\game\Game\Game\main.cpp(67,60): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\A3\projects\game\Game\Game\main.cpp(69,62): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\A3\projects\game\Game\Game\main.cpp(70,88): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\A3\projects\game\Game\Game\main.cpp(95,66): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\A3\projects\game\Game\Game\main.cpp(96,67): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\A3\projects\game\Game\Game\main.cpp(104,21): warning C4305: '+=': truncation from 'double' to 'GLfloat'
+﻿  Parallelepiped.cpp
   Game.vcxproj -> C:\Users\A3\projects\game\Game\x64\Debug\Game.exe

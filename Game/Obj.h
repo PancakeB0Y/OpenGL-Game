@@ -21,4 +21,6 @@ public:
 	void setTransform(Matrix4 transform);
 
 	Matrix4 getTranform();
+
+	void processTriangles(TriangleProcessor* processor, Matrix4 m);
 };
